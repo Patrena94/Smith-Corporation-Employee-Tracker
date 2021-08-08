@@ -1,0 +1,25 @@
+{
+  "name": "Smith-Corporation-Employee-Tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquire": "^0.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Patrena94/Smith-Corporation-Employee-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Patrena94/Smith-Corporation-Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/Patrena94/Smith-Corporation-Employee-Tracker#readme"
+}
