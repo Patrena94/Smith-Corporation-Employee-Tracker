@@ -27,31 +27,34 @@ switch(answer.selections){
         case  "view All Departments":
             viewAllDepartments();
             break;
-            case "View All Roles":
-                viewAllRoles();
-                break;
-                case "Add Role":
-                    Add Role();
-                    break;
 
-                    case "Add Department":
-      
-                    Add Department();
-                        break;
+        case "View All Roles":
+        viewAllRoles();
+        break;
 
-                        case  "update Role":
-                            update Role();
-                            case"Exit":
-                            db.end();
-                            break;
+        case "Add Role":
+        AddRole();
+        break;
+
+        case "Add Department":
+        AddDepartment();
+        break;
+
+        case  "update Role":
+        updateRole();
+        break;
+
+        case"Exit":
+        db.end();
+        break;
 }
 });
-};
+;
 const viewAllEmployees = (req, res) =>{
     const sql='SELECT first_name, last_name, role_id, role.salary, role.title, deparment.name as DEPARTMENT'
 FROM employee
 INNER JOIN role ON employee.role_id =role_id
-INNER JOIN department ON role.department_id=department_id';
+INNER JOIN department ON role.department_id=department_id
 db.query(sql, (err, res)=> {
     if(err) throw err;
     console.table(res)
@@ -72,10 +75,10 @@ Init();
     const viewAllRole = (req, res) =>{
         const sql ='SELECT role.id. role.title, role.salary, department. name as "Department"
 FROM role
-INNER JOIN department ON role.department_id =department.id';
+INNER JOIN department ON role.department_id =department.id'
 db.query(sql, (err, res)=> {
     if(err) throw err;
     console.table(res);
     Init();
 });
-Init();
+Init();}
