@@ -21,7 +21,7 @@ VALUES("James", "Brown", 1, NULL),
 ("Thomas", "Andrew", 8, NULL),
 ("Smith", "Alesia", 3, NULL),
 ('Nicole', "Arrington", 2, NULL),
-("Blance","Devereaux",5,2),
+("Blance","Devereaux",5,3),
 ("Dorthy","Zbornak", 6, 2),
 ("Sophia", "Petrillo", 5, 1),
 ("Rose","Nylund",5, 4);

@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const db = require("./db/connection");
 
 let departmentsArr = []
+let employeesARR=[]
 
 db.connect(err => {
     if (err) throw err;
@@ -68,7 +69,15 @@ const loadDept = () =>{
         }
     })
 }
-
+const loadEmployee =()=>{
+employeesArr=[]
+const sql  = `SELECT * From employee`
+db.query(sql, (err, data)=>{
+    for(i=0; i< data.length; i++){
+        employeeArr.push(data[i].name)
+    }
+})
+}
 
 const viewAllEmployees = (req, res) =>{
     const sql=`
@@ -97,7 +106,7 @@ console.table (res);
 Init();
 })
 };
-    // console.log("This switch statement works fine!")
+
 const viewAllRole = (req, res) =>{
    const sql =`SELECT role.id, role.title, role.salary, department.name as Department
 FROM role
@@ -176,16 +185,30 @@ const addEmployee =()=>{
     message: "Who id the employee's manager?"
 },
 {
+    type:'input',
+    type:'list',
+      choices: departmentsArr,
+      message: "what department is this role assigned to?"
+},
+    ])
+.then((answer)=> {
+        const sql = `INSERT INTO role(first_name,last_name, role, department_id) VALUES (?,?,?,?)`
+        db.query(sql, [answer.first_name, answer.last_name, answer.role, departmentsArr.indexOf(answer.department) + 1], (err, data) => {
+            if (err) throw err;
+            Init();
+        }
+        )},
+{
     type:"confirm",
     name:"confirmupdateEmployee",
     message: "would you like to update an Employee?",
     default: false,    
 },
 {
-    type:"checkbox",
-    name:"position",
+    type:"list",
+    name:"employee",
+    Choices: employeesArr,
     message: "Which employee would you like to update?",
-    Choices:[""]
 },
 { 
     type: 'input',
@@ -196,7 +219,6 @@ const addEmployee =()=>{
   name: 'newManger',
   message: "what is the new manager's name?"
 },
-    ]) 
 }
-// Init();
+
 
