@@ -2,13 +2,24 @@ const inquirer = require("inquirer");
 const db = require("./db/connection");
 
 let departmentsArr = []
-let employeesARR=[]
+let employeesArr=[]
+let managerArr=[]
 
 db.connect(err => {
     if (err) throw err;
     loadDept()
+    // loadEmployee() 
+    // loadManager()
     Init();
 })
+// db.connect(err =>{
+//     if (err) throw err;
+//     Init();
+// })
+// db.connect(err=> {
+//     if (err) throw err;
+//     Init();
+// })
 const opt =[
     {type: "list",
 name: "selections",
@@ -19,7 +30,8 @@ choices: [
    "View All Roles",
    "Add Role",
     "Add Department",
-    "update Role",
+    "Add Employee",
+    "update Employee",
     "Exit",
 ],
 },
@@ -49,8 +61,12 @@ switch(answer.selections){
         addDepartment();
         break;
 
-        case  "update Role":
-        updateRole();
+        case "Add Employee":
+        addEmployee();
+        break;   
+
+        case  "update Employeee":
+        updateEmployee();
         break;
 
         case"Exit":
@@ -69,16 +85,24 @@ const loadDept = () =>{
         }
     })
 }
-const loadEmployee =()=>{
-employeesArr=[]
-const sql  = `SELECT * From employee`
-db.query(sql, (err, data)=>{
-    for(i=0; i< data.length; i++){
-        employeeArr.push(data[i].name)
-    }
-})
-}
-
+// const loadEmployee =()=>{
+// employeesArr=[]
+// const sql  = `SELECT * FROM employee`
+// db.query(sql, (err, data)=>{
+//     for(i=0; i< data.length; i++){
+//         employeesArr.push(data[i].name)
+//     }
+// })
+// }
+// const loadManager =()=>{
+//     managerArr=[]
+//     const sql =`SELECT * FROM employee`
+//     db.query(sql, (err, data)=>{
+//     for(i=0; i< data.length; i++){
+//         managerArr.push(data[i].name)
+//     }    
+//     })
+// }
 const viewAllEmployees = (req, res) =>{
     const sql=`
     SELECT employee.id, employee.first_name,  employee.last_name, title, department.name, salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
@@ -163,15 +187,15 @@ const addRole = () =>{
     });
 }
 const addEmployee =()=>{
-    inquier 
+    inquirer 
     .prompt ([{ 
-        name:'first name',
         type:'input',
+        name:'employee.first_name',
         message: "what is the employee's first name?",
     },
     { 
-        name: 'last name',
         type: 'input',
+        name: 'employee.last_name',
         message: "What is the employee's last name?",
     },
 {
@@ -180,27 +204,26 @@ const addEmployee =()=>{
     message: "What is the employee's role?",
 },
 {
-    type: 'input',
-    name: 'manager',
-    message: "Who id the employee's manager?"
-},
-{
-    type:'input',
     type:'list',
-      choices: departmentsArr,
-      message: "what department is this role assigned to?"
+    name:'manager_id',
+      choices: employeesArr,
+      message: "who is the manager role assigned to?"
 },
     ])
 .then((answer)=> {
-        const sql = `INSERT INTO role(first_name,last_name, role, department_id) VALUES (?,?,?,?)`
-        db.query(sql, [answer.first_name, answer.last_name, answer.role, departmentsArr.indexOf(answer.department) + 1], (err, data) => {
+        const sql = `INSERT INTO employee(employee.first_name, employee.last_name, role_id, manager_id) VALUES (?,?,?,?)`
+        db.query(sql, [answer.first_name, answer.last_name, answer.employeesArr.indexOf(answer.employee) + 1], (err, data) => {
             if (err) throw err;
             Init();
-        }
-        )},
-{
+        })
+
+    });
+{   
+const updateEmployee =()=>{
+    inquirer 
+    .prompt ([{            
     type:"confirm",
-    name:"confirmupdateEmployee",
+     name:"confirmupdateEmployee",
     message: "would you like to update an Employee?",
     default: false,    
 },
@@ -218,7 +241,6 @@ const addEmployee =()=>{
 { type:"input",
   name: 'newManger',
   message: "what is the new manager's name?"
-},
 }
-
-
+ ])};
+}}

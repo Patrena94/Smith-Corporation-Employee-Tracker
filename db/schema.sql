@@ -33,13 +33,3 @@ CREATE TABLE employee(
     FOREIGN KEY(role_id) REFERENCES role (id),
     FOREIGN KEY(manager_id) REFERENCES employee(id) ON DELETE SET NULL
 );
--- Creating Manager table
-
--- CREATE TABLE manager(  
---      id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, 
---     first_name VARCHAR(30)  NOT NULL,
---     last_name VARCHAR(30) NOT NULL,
---     department_id INTERGER NOT NULL,
---     FOREIGN KEY(role_id) REFERENCES role (id),
---     FOREIGN KEY(manager_id)  REFERENCES employee(id)
--- );
