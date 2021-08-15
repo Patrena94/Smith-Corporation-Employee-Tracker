@@ -19,7 +19,7 @@ VALUES("Finance Director", 95000, 1),
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES("James", "Brown", 1, NULL),
 ("Thomas", "Andrew", 8, NULL),
-("Smith", "Alesia", 3, NULL),
+("Alesia","Smith",  3, NULL),
 ('Nicole', "Arrington", 2, NULL),
 ("Blance","Devereaux",5,3),
 ("Dorthy","Zbornak", 6, 2),

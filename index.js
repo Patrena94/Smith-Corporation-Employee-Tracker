@@ -12,20 +12,6 @@ db.connect(err => {
     // loadManager()
     Init();
 })
-// db.connect(err =>{
-//     if (err) throw err;
-//     const managerChoices=res
-//     .filter((mgr)=> mgr.manager_id)
-//     .map(({manger_id, manager})=> ({
-//         value: manger_id,
-//         name: manager,
-//     })));
-//     Init();
-// })
-// db.connect(err=> {
-//     if (err) throw err;
-//     Init();
-// })
 const opt =[
     {type: "list",
 name: "selections",
@@ -126,7 +112,6 @@ db.query(sql, (err, res)=> {
     Init();
 })
 };
-console.log("This switch statement works fine!")
 
 const viewAllDepartments = (req, res) =>{
     const sql='SELECT * FROM department';
@@ -206,32 +191,48 @@ const addEmployee =()=>{
     },
 {
     name: 'role',
-    type: 'input',
+    type: 'list',
     message: "What is the employee's role?",
+    choices: ['Administrative Assistant', 'Talent Acquistion Recruiter', 'Recruiter', 'Executive Assistant', 'Vice President Sales', 'PR Representative', 'Marketing Directore','Finance Director'],
 },
+// { 
+//   name:'department',
+//   type:'list',
+//   choices: departmentsArr,
+//   message: "what department is this role assigned to?",
+// },
+// {
+//     type:'input',
+//     name:'salary',
+//     message: "What is the Salary"
+// },
 {
     type:'list',
     name:'manager_id',
-      choices: employeesArr,
+      choices: ['1', '2', '3', '4'],
       message: "who is the manager role assigned to?"
 },
-    ])   
+// {
+//     type:'list',
+//     name:'manager.last_name',
+//       choices: employeesArr,
+//       message: "who is the manager role assigned to?"
+// },
+])
 .then((answer)=> {
-        const sql = `INSERT INTO employee(employee.first_name, employee.last_name, role_id, employee.manager_id) VALUES (?,?,?,?)`
-        db.query(sql, [answer.first_name, answer.last_name, answer.employeesArr.indexOf(answer.manger_id) + 1], (err, data) => {
-            if (err) throw err;
-            Init();
-        })
-
-    });
-{   
+    const sql = `INSERT INTO employee(first_name, employee.last_name, role_id, manager_id) VALUES (?,?,?,?,)`
+    db.query(sql, [answer.first_name, answer.last_name, answer.role_id, answer.manager_id], (err, data) => {
+        if (err) throw err;
+        Init();
+    })
+});
+}
 const updateEmployee =()=>{
     inquirer 
-    .prompt ([{            
-    type:"confirm",
-     name:"confirmupdateEmployee",
+    .prompt ([{      
+    type:'input',
+    name:'first_name',
     message: "would you like to update an Employee?",
-    default: false,    
 },
 {
     type:"list",
@@ -247,6 +248,6 @@ const updateEmployee =()=>{
 { type:"input",
   name: 'newManger',
   message: "what is the new manager's name?"
-}
+},
  ])};
-}}
+ 
