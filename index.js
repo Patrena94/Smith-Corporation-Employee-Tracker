@@ -181,52 +181,37 @@ const addEmployee =()=>{
     inquirer 
     .prompt ([{ 
         type:'input',
-        name:'employee.first_name',
+        name:'first_name',
         message: "what is the employee's first name?",
     },
     { 
         type: 'input',
-        name: 'employee.last_name',
+        name: 'last_name',
         message: "What is the employee's last name?",
     },
 {
     name: 'role',
     type: 'list',
     message: "What is the employee's role?",
-    choices: ['Administrative Assistant', 'Talent Acquistion Recruiter', 'Recruiter', 'Executive Assistant', 'Vice President Sales', 'PR Representative', 'Marketing Directore','Finance Director'],
+    choices: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12'],
 },
-// { 
-//   name:'department',
-//   type:'list',
-//   choices: departmentsArr,
-//   message: "what department is this role assigned to?",
-// },
-// {
-//     type:'input',
-//     name:'salary',
-//     message: "What is the Salary"
-// },
 {
     type:'list',
     name:'manager_id',
       choices: ['1', '2', '3', '4'],
       message: "who is the manager role assigned to?"
 },
-// {
-//     type:'list',
-//     name:'manager.last_name',
-//       choices: employeesArr,
-//       message: "who is the manager role assigned to?"
-// },
 ])
+
 .then((answer)=> {
-    const sql = `INSERT INTO employee(first_name, employee.last_name, role_id, manager_id) VALUES (?,?,?,?,)`
-    db.query(sql, [answer.first_name, answer.last_name, answer.role_id, answer.manager_id], (err, data) => {
+    const sql = `INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)`
+    db.query(sql, [answer.first_name, answer.last_name, answer.role, answer.manager_id], (err, data) => {
         if (err) throw err;
         Init();
     })
 });
-}
+
+
 const updateEmployee =()=>{
     inquirer 
     .prompt ([{      
@@ -250,4 +235,4 @@ const updateEmployee =()=>{
   message: "what is the new manager's name?"
 },
  ])};
- 
+}
