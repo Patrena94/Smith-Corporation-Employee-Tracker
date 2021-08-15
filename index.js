@@ -8,12 +8,18 @@ let managerArr=[]
 db.connect(err => {
     if (err) throw err;
     loadDept()
-    // loadEmployee() 
+    loadEmployee() 
     // loadManager()
     Init();
 })
 // db.connect(err =>{
 //     if (err) throw err;
+//     const managerChoices=res
+//     .filter((mgr)=> mgr.manager_id)
+//     .map(({manger_id, manager})=> ({
+//         value: manger_id,
+//         name: manager,
+//     })));
 //     Init();
 // })
 // db.connect(err=> {
@@ -85,15 +91,15 @@ const loadDept = () =>{
         }
     })
 }
-// const loadEmployee =()=>{
-// employeesArr=[]
-// const sql  = `SELECT * FROM employee`
-// db.query(sql, (err, data)=>{
-//     for(i=0; i< data.length; i++){
-//         employeesArr.push(data[i].name)
-//     }
-// })
-// }
+const loadEmployee =()=>{
+employeesArr=[]
+const sql  = `SELECT * FROM employee`
+db.query(sql, (err, data)=>{
+    for(i=0; i< data.length; i++){
+        employeesArr.push(data[i].manager_id)
+    }
+})
+}
 // const loadManager =()=>{
 //     managerArr=[]
 //     const sql =`SELECT * FROM employee`
@@ -209,10 +215,10 @@ const addEmployee =()=>{
       choices: employeesArr,
       message: "who is the manager role assigned to?"
 },
-    ])
+    ])   
 .then((answer)=> {
-        const sql = `INSERT INTO employee(employee.first_name, employee.last_name, role_id, manager_id) VALUES (?,?,?,?)`
-        db.query(sql, [answer.first_name, answer.last_name, answer.employeesArr.indexOf(answer.employee) + 1], (err, data) => {
+        const sql = `INSERT INTO employee(employee.first_name, employee.last_name, role_id, employee.manager_id) VALUES (?,?,?,?)`
+        db.query(sql, [answer.first_name, answer.last_name, answer.employeesArr.indexOf(answer.manger_id) + 1], (err, data) => {
             if (err) throw err;
             Init();
         })
