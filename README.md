@@ -48,19 +48,18 @@ User interested in contributing to the project will need to create their own bra
 
 # Test Instructions
 To test the seeds.sql and schema.sql files, the user will need to enter the following: SOURCE db/schema.sql; (this will provide confirmation data back to the user) and SOURCE db/seeds.sql (this will also provide confirmation the data to the user).   
-
-![ALT text](Slide1.GIF)/![](Slide1.GIF)
-![ALT text](Slide2.GIF)/![](Slide2.GIF)
-![ALT text](Slide3.GIF)/![](Slide3.GIF)
-![ALT text](Slide4.GIF)/![](Slide4.GIF)
-![ALT text](Slide5.GIF)/![](Slide5.GIF)
-![ALT text](Slide6.GIF)/![](Slide6.GIF)
-![ALT text](Slide7.GIF)/![](Slide7.GIF)
-![ALT text](Slide8.GIF)/![](Slide8.GIF)
-![ALT text](Slide9.GIF)/![](Slide9.GIF)
-![ALT text](Slide10.GIF)/![](Slide10.GIF)
-![ALT text](Slide11.GIF)/![](Slide11.GIF)
-![ALT text](Slide12.GIF)/![](Slide12.GIF)
+![Slide1](https://user-images.githubusercontent.com/83892241/129507190-fffdb885-8804-404d-adb4-a2a644118558.GIF)
+![Slide2](https://user-images.githubusercontent.com/83892241/129507224-5e9f844f-a4ac-49c7-807e-64e7446f9677.GIF)
+![Slide3](https://user-images.githubusercontent.com/83892241/129507251-d756aa64-9f1e-4cff-a430-e3bc1a3ead56.GIF)
+![Slide4](https://user-images.githubusercontent.com/83892241/129507252-8d627199-66d5-494e-85c4-0d59d73439c1.GIF)
+![Slide5](https://user-images.githubusercontent.com/83892241/129507336-a2526fe6-ec22-458c-9c3c-10f0e9b082ca.GIF)
+![Slide6](https://user-images.githubusercontent.com/83892241/129507363-ec65d8f8-996f-40f0-83b8-4bbe3c6ec6e3.GIF)
+![Slide7](https://user-images.githubusercontent.com/83892241/129507382-e1cca45a-434f-43ca-ab91-2285e593946d.GIF)
+![Slide8](https://user-images.githubusercontent.com/83892241/129507386-8c8d9411-389f-426b-bd83-21d70e137d68.GIF)
+![Slide9](https://user-images.githubusercontent.com/83892241/129507399-df864e8a-ff1e-4b49-918b-194830e0eb55.GIF)
+![Slide10](https://user-images.githubusercontent.com/83892241/129507411-74a08a67-a19a-4844-8c2a-4cf941dcfd4f.GIF)
+![Slide11](https://user-images.githubusercontent.com/83892241/129507419-62c022ba-e31e-415b-a2e2-a4c9f80fcd86.GIF)
+![Slide12](https://user-images.githubusercontent.com/83892241/129507282-4038b699-abfa-4e17-a226-9e672a293936.GIF)
 
 ❤️ Made with Love by Patrena, LLC. 2021
 ![Build Status](https://img.shields.io/github/languages/top/Patrena94/Smith-Corporation-Work-Scheduler)  
