@@ -2,7 +2,7 @@
       
 # License
    
-https://img.shields.io/github/license/Patrena94/Smith-Corporation-Employee-Tracker
+![Build Status](https://img.shields.io/github/license/Patrena94/Smith-Corporation-Employee-Tracker)  
 
 
  # Project Description
