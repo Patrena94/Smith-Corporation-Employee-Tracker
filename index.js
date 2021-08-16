@@ -57,7 +57,7 @@ switch(answer.selections){
         addEmployee();
         break;   
 
-        case  "update Employeee":
+        case  "update Employee":
         updateEmployee();
         break;
 
