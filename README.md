@@ -15,7 +15,7 @@ The Smith Corporation Employee Tracker is designed to provide Executive Officers
  3.Usage
  4.License
  5.Contributors
- 6.${Tests}
+ 6.Test Instructions
 
  #Questions  
 
